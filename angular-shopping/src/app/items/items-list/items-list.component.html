@@ -1,1 +1,15 @@
-<app-a-item></app-a-item>
+<div class="row">
+    <div class = "col-12">
+        <button class = "btn btn-success"> New Item</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class = "col-12">
+        <div class = "card-deck">
+
+       <app-a-item  *ngFor = "let itemEl of items"
+        [item] = "itemEl"></app-a-item>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, OUtput, EventEmitter } from '@angular/core';
+import { Item } from '../../item.model'
+
 
 @Component({
   selector: 'app-a-item',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./a-item.component.css']
 })
 export class AItemComponent implements OnInit {
-
+  @Input() item: Item;
+  @Output() addToCart = new EventEmitter<void>();
+  
   constructor() { }
 
   ngOnInit() {
+  }
+  
+  onSelected(){
+    
   }
 
 }

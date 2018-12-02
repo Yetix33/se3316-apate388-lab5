@@ -1,3 +1,29 @@
-<p>
-  shopping-list works!
-</p>
+<div class = "row">
+    <div class = "col-10">
+        <app-shopping-edit></app-shopping-edit>
+        <hr>
+        <ul class = "list-group">
+            <li class = "list-group-item" style = "cursor: pointer;"
+                *ngFor = "let item of itemsInCart"> 
+                <div class= "row">
+                    <div class = "col-6">
+                         {{item.name}}
+                     </div>
+                     
+                     <div class = "col-6">
+                         {{item.price}}
+                         <div class = "row>">
+                             <button ng-click = "item.decrease()" class = "btn btn-danger">-</button>
+                             {{item.number}}
+                             <button ng-click = "item.increase()" class = "btn btn-success">+</button>
+                         </div>
+                    </div>
+                </div>
+               
+                
+                
+                
+            </li>
+        </ul>
+    </div>
+</div>
