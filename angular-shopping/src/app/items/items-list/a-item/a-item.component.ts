@@ -1,5 +1,6 @@
-import { Component, OnInit,Input, OUtput, EventEmitter } from '@angular/core';
+import { Component, OnInit,Input, } from '@angular/core';
 import { Item } from '../../item.model'
+import {ItemsService} from '../../items.service'
 
 
 @Component({
@@ -9,15 +10,12 @@ import { Item } from '../../item.model'
 })
 export class AItemComponent implements OnInit {
   @Input() item: Item;
-  @Output() addToCart = new EventEmitter<void>();
+  @Input() index: number;
   
-  constructor() { }
+  constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
   }
   
-  onSelected(){
-    
-  }
-
+  
 }

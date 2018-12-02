@@ -13,6 +13,7 @@ import { ItemsDetailsComponent } from './items/items-details/items-details.compo
 import { AItemComponent } from './items/items-list/a-item/a-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { ItemEditComponent } from './items/item-edit/item-edit.component';
 
 
 
@@ -25,11 +26,12 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     ItemsDetailsComponent,
     AItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    ItemEditComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
