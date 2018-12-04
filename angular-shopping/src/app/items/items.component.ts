@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from './item.model';
+
 import {ItemsService} from './items.service';
 @Component({
   selector: 'app-items',
@@ -8,19 +8,15 @@ import {ItemsService} from './items.service';
   providers:[ItemsService]
 })
 export class ItemsComponent implements OnInit {
-  selectedItem: Item;
+ 
   
-  constructor(private itemsService: ItemsService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.itemsService.itemSelected
-      .subscribe(
-        (item: Item) => {
-          this.selectedItem =item;
           
         }
         
-        )
-  }
+        
+  
 
 }

@@ -1,28 +1,27 @@
 <div class = "row">
     <div class = "col-10">
-        <app-shopping-edit></app-shopping-edit>
         <hr>
         <ul class = "list-group">
             <li class = "list-group-item" style = "cursor: pointer;"
-                *ngFor = "let item of itemsInCart"> 
+                *ngFor = "let item of itemCart; let i = index"> 
                 <div class= "row">
-                    <div class = "col-6">
+                    <div class = "col-8">
                          {{item.name}}
                      </div>
                      
-                     <div class = "col-6">
-                         {{item.price}}
-                         <div class = "row>">
-                             <button ng-click = "item.decrease()" class = "btn btn-danger">-</button>
+                         <div class = "col-1">
+                         $ {{item.price}}
+                         </div>
+                         <div class = "col-1">
+                             <button (click) = "decrease(i)" class = "btn btn-danger">-</button>
+                         </div>
+                         <div class ="col-1">
                              {{item.amount}}
-                             <button ng-click = "item.increase()" class = "btn btn-success">+</button>
+                         </div>
+                         <div class = "col-1">
+                             <button (click)= "increase(i)" class = "btn btn-success">+</button>
                          </div>
                     </div>
-                </div>
-               
-                
-                
-                
             </li>
         </ul>
     </div>

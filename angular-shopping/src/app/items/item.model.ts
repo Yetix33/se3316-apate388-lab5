@@ -33,5 +33,9 @@ export class Item{
         
         
     }
+    addComment(comment: string){
+        this.comments.push(comment);
+    }
+    
     
 }

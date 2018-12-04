@@ -1,22 +1,41 @@
 
-<div class = "w-100 mx-0">
-   <div class = "jumbotron jumbotron-fluid mx-0">
+   <div class = "jumbotron jumbotron-fluid">
+     
        <div class = "containter">
            <h1 class= "display-4">{{item.name}}</h1>
            <hr class = "my-4">
            <div class = row>
                <div class = "col-6">
-               <h4> Rating: {{item.getRating()}}</h4>
-            </div>
+                  <h4> Rating: {{item.getRating()}}</h4>
+               </div>
                <div class = "col-6">
                    <span class= "pull-right">
                        <h4> $ {{item.price}}</h4>
+                       <button class = "btn btn-outline-success" (click) = "onAddToCart()">Add to Cart</button>
                    </span>
                </div> 
-           
             </div>
            <p class = "lead">{{item.details}}</p>
-           <p> </p> 
-<div class = "w-100">
+           <button class = "btn btn-success">Comment</button>
+           <div class ="row" *ngFor = "let comment of comments">
+               <div class = "col-3">
+               <p>User</p>
+               </div>
+               <div class = "col-9">
+               <p>{{comment}} </p>
+               </div>
+            </div>
+           
+           <div class = "row">
+              <div class = "col-12">
+               <span class = "pull-right">
+               <button class = "btn btn-outline-info" (click) = "onEditItem()"> Edit</button>
+               <button class = "btn btn-outline-danger">Delete</button>
+               </span>
+               </div>
+           </div>
+          
+      </div>
+   </div>
    
 

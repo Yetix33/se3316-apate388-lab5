@@ -1,15 +1,11 @@
 
+<button class = "btn btn-success" (click) =  "onNewItem()"> New Item</button>
 
-
-
-
-    
-        <div class = "card-deck" >
-
-       <app-a-item  *ngFor = "let itemEl of items; let i = index"
+<div class = "card-deck" >
+    <app-a-item  *ngFor = "let itemEl of items; let i = index"
         [item] = "itemEl"
         [index] ="i"
         ></app-a-item>
-        </div>
+</div>
 
 
