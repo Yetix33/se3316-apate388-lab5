@@ -6,7 +6,7 @@ import {ItemCartService} from '../../shared/item-cart.service'
 import {itemInCart} from '../../shopping-list/itemInCart.model'
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../auth/auth.service';
-
+import {DataStorageService} from '../../shared/data-storage.service';
 @Component({
   selector: 'app-items-details',
   templateUrl: './items-details.component.html',
@@ -25,7 +25,8 @@ export class ItemsDetailsComponent implements OnInit {
               private itemCartService: ItemCartService,
              private route: ActivatedRoute,
              private router: Router,
-             private authService: AuthService) { }
+             private authService: AuthService,
+             private dataService: DataStorageService) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -34,9 +35,10 @@ export class ItemsDetailsComponent implements OnInit {
         this.item = this.itemsService.getItem(this.id);
         this.comments = this.item.comments;
         this.ratings = this.item.rating;
+        if(this.comments !=null){
         for(var i = 0; i< this.comments.length; i++){
           this.comments[i] =this.ratings[i]+ " " + this.comments[i];
-        }
+        }}
         
         this.rating = this.item.getRating();
         this.key = this.itemsService.keys[this.id];
@@ -54,11 +56,22 @@ export class ItemsDetailsComponent implements OnInit {
     this.itemsService.addItemtoCart(newitem);
     
   }
-  
+  onDelete(){
+    this.dataService.deleteItem(this.key);
+    
+  }
   onComment(form : NgForm){
     const rating = form.value.rating;
     const comment = form.value.comment;
+   
     this.itemsService.addComment(this.id, rating, comment);
   }
-
+  onHide(){
+    this.item.visibility = !this.item.visibility;
+    this.dataService.updateItem(this.item, this.key);
+  }
+  
+  isHidden(){
+    return this.item.visibility;
+  }
 }

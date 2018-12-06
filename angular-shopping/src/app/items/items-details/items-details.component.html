@@ -29,6 +29,7 @@
                  
                </form>
            </div>
+           <ng-template [ngIf] = "this.isHidden()">
            <div class ="row" *ngFor = "let comment of comments">
                <div class = "col-3">
                <p>User</p>
@@ -37,13 +38,14 @@
                <p>{{comment}} </p>
                </div>
             </div>
+           </ng-template>
            
            <div class = "row">
-              <div class = "col-12">
-               <span class = "pull-right">
-               <button *ngIf = "authService.isSM()" class = "btn btn-outline-info" (click) = "onEditItem()"> Edit</button>
-               <button *ngIf = "authService.isSM()" class = "btn btn-outline-danger">Delete</button>
-               </span>
+              <div *ngIf = "authService.isSM()" class = "col-12">
+              
+               <button  class = "btn btn-outline-info" (click) = "onEditItem()"> Edit</button>
+               <button class = "btn btn-outline-danger">Delete</button>
+               <button (click) = "onHide()" class = "btn btn-outline-warning">Hide Comments </button>
                </div>
            </div>
           

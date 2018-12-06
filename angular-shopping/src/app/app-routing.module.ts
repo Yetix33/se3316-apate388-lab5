@@ -11,7 +11,7 @@ import {SignupFinishComponent} from './auth/signup-finish/signup-finish.componen
 import {NewItemComponent} from './items/items-list/new-item/new-item.component';
 import {AuthGuard} from './auth/auth-guard.service';
 import {CollectionsComponent} from './collections/collections.component'
-
+import {DmcaComponent} from './dmca/dmca.component';
 const routes: Routes = [
   { path: '', redirectTo: '/items', pathMatch: 'full'},
   {path: 'items', component: ItemsComponent, children:[
@@ -23,7 +23,8 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
   {path: 'signup-finish', component: SignupFinishComponent},
-  {path : 'collections', component: CollectionsComponent}
+  {path : 'collections', component: CollectionsComponent},
+  {path : 'dmca', component: DmcaComponent}
   ];
 
 @NgModule({

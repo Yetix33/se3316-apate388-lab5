@@ -66,14 +66,16 @@ export class DataStorageService {
     dataset = Object.keys(data).map((key) => { return data[key] });
     console.log(dataset);
     var newCollection: Collection[] = [];
+    var keys: string[] = [];
     for (var i = 0; i < dataset.length ; i++) {
       var temp = new Collection(dataset[i].name, dataset[i].desc,  dataset[i].status);
       temp.itemsInCollection = dataset[i].itemsInCollection;
+      keys.push(Object.keys(data)[i])
       newCollection.push(temp);
     }
     
       //console.log(data);
-      callback(newCollection);
+      callback(newCollection, keys);
     });
   }
   
@@ -85,6 +87,15 @@ export class DataStorageService {
       
     });
     
+  }
+  updateCollection(collection : Collection , key : string){
+    this.http.put(this.url+ '/collection/' +this.authService.getID+ '/' + key + '.json', collection).subscribe(data =>{
+      console.log(data);
+    });
+    
+  }
+  deleteCollection(key : string){
+    this.http.delete(this.url + '/collection/' + this.authService.getID + '/' + key + '.json').subscribe(err => console.log(err));
   }
   
   

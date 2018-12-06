@@ -1,7 +1,7 @@
 import { Item } from '../items/item.model'
 
 export class Collection{
-    public itemsInCollection : Item[];
+    public itemsInCollection : any[];
     public name: string;
     public desc: string;
     public status: boolean;

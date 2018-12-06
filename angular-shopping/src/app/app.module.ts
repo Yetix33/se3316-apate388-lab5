@@ -23,7 +23,9 @@ import { ItemsService } from './items/items.service';
 import { SignupFinishComponent } from './auth/signup-finish/signup-finish.component';
 import { NewItemComponent } from './items/items-list/new-item/new-item.component';
 import { AuthGuard } from './auth/auth-guard.service';
-import { CollectionsComponent } from './collections/collections.component'
+import { CollectionsComponent } from './collections/collections.component';
+import { DmcaComponent } from './dmca/dmca.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { CollectionsComponent } from './collections/collections.component'
     SigninComponent,
     SignupFinishComponent,
     NewItemComponent,
-    CollectionsComponent
+    CollectionsComponent,
+    DmcaComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { CollectionsComponent } from './collections/collections.component'
     FormsModule,
     HttpClientModule
   ],
-  providers: [Title, ItemCartService, ItemsService, AuthService, AuthGuard  ],
+  providers: [Title, ItemCartService, ItemsService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

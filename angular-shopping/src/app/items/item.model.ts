@@ -15,9 +15,9 @@ export class Item{
         this.imagePath= imagePath;
         this.price = price;
         this.stock = stock;
-        this.visibility = false;
-        this.rating = [];
-        this.comments =[];
+        this.visibility = true;
+        this.rating = [1];
+        this.comments = ['very nice'];
     }
     getRating(){
         var average = 0;

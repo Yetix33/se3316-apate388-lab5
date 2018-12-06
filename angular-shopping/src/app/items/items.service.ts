@@ -21,7 +21,6 @@ export class ItemsService {
   constructor(private itemcartService: ItemCartService, private dataService : DataStorageService) { 
     //this.items[0].comments.push("very nice");
     dataService.getItems(this.OnResponse.bind(this));
-    
   }
   OnResponse(res1, res2){
     this.items = res1;
@@ -40,6 +39,8 @@ export class ItemsService {
   
   }
   addComment(id : number, rating : number, comment : string){
+    console.log(comment);
+    console.log(this.items[id]);
     this.items[id].comments.push(comment);
     this.items[id].rating.push(rating);
     this.dataService.updateItem(this.items[id], this.keys[id]);
