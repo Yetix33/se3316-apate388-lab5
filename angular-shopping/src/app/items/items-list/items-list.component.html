@@ -1,5 +1,5 @@
 
-<button *ngIf = "authService.isAuthenticated()" class = "btn btn-success" (click) =  "onNewItem()"> New Item</button>
+<button *ngIf = "authService.isSM()" class = "btn btn-success" (click) =  "onNewItem()"> New Item</button>
 <div class = "card-deck" >
     <app-a-item  *ngFor = "let itemEl of items; let i = index"
         [item] = "itemEl"

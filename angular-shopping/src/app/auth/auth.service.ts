@@ -9,7 +9,11 @@ export class AuthService {
   private error;
   private token : string;
   private user;
-  constructor(private router : Router) { }
+  private managers: string[];
+  constructor(private router : Router) { 
+    this.managers = ['AweGJZqK82V9X7ynuajVsdfZrWq2'];
+    
+  }
   
   private actionCodeSettings = {
     url: 'https://shopping-cart-yetix33.c9users.io/signup-finish',
@@ -93,6 +97,10 @@ getID(){
   return this.user.uid;
   
 }
-
-  
+isSM(){
+  if(this.user != null){
+  for(var i= 0; i< this.managers.length; i++){
+    if(this.user.uid == this.managers[i]) return true;
+  }}else return false;
+}
 }
