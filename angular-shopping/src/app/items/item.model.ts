@@ -1,5 +1,4 @@
 export class Item{
-   
     public name: string;
     public details: string;
     public imagePath: string;
@@ -11,7 +10,6 @@ export class Item{
     
     
     constructor(name: string, dets: string,imagePath: string, price: number, stock: number){
-        
         this.name = name;
         this.details = dets;
         this.imagePath= imagePath;
@@ -22,19 +20,15 @@ export class Item{
         this.comments =[];
     }
     getRating(){
-        var average: number;
-        if(this.rating){
-            for( var i = 0; i< this.rating.length;i++){
+        var average = 0;
+        if(this.rating !=null){
+            for( var i = 0; i< this.rating.length; i++){
                 average += this.rating[i];
             }
             average = average/this.rating.length;
             return average;
-        } else return 0;
+        }else return 0;
         
-        
-    }
-    addComment(comment: string){
-        this.comments.push(comment);
     }
     
     

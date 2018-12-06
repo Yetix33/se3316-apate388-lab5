@@ -8,19 +8,22 @@ import {ItemEditComponent} from './items/item-edit/item-edit.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
 import {SignupFinishComponent} from './auth/signup-finish/signup-finish.component';
+import {NewItemComponent} from './items/items-list/new-item/new-item.component';
+import {AuthGuard} from './auth/auth-guard.service';
+import {CollectionsComponent} from './collections/collections.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/items', pathMatch: 'full'},
   {path: 'items', component: ItemsComponent, children:[
-      {path: 'new', component: ItemEditComponent},
-      {path: ':id', component: ItemsDetailsComponent},
-      {path: ':id/edit', component: ItemEditComponent}
+      {path: 'new', component: NewItemComponent, canActivate: [AuthGuard]},
+      {path: ':id', component: ItemsDetailsComponent}, 
+      {path: ':id/edit', component: ItemEditComponent, canActivate: [AuthGuard]},
     ]},
   {path: 'shopping-list', component: ShoppingListComponent}, 
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'signup-finish', component: SignupFinishComponent}
-  
+  {path: 'signup-finish', component: SignupFinishComponent},
+  {path : 'collections', component: CollectionsComponent}
   ];
 
 @NgModule({

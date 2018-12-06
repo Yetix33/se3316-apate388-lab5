@@ -1,0 +1,26 @@
+<h1 class = "display-4"> Enter Item Information</h1>
+    <form (ngSubmit) = "onSubmit(f)" #f = "ngForm">
+        <div class = "form-group">
+            <label for = "name">Name</label>
+            <input type="text" name="name" class = "form-control" ngModel/>
+        </div>
+        
+        <div class = "form-group">
+            <label for = "details">Details</label>
+            <input type="text" name="details" class = "form-control" ngModel/>
+        </div>
+        <div class = "form-group">
+            <label for = "imgpath">Image URL</label>
+            <input type="text" name="imgpath" class = "form-control" ngModel/>
+        </div>
+        
+        <div class = "form-group">
+            <label for = "price">Price</label>
+            <input type="number" name="price" class = "form-control" ngModel/>
+        </div>
+        <div class = "form-group">
+            <label for = "stock">Stock</label>
+            <input type="number" name="stock" class = "form-control" ngModel/>
+        </div>
+        <button class = "btn btn-outline-success" type= "submit">Add Item</button>
+    </form>

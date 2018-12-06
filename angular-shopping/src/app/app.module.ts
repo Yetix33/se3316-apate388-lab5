@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {HttpClientModule} from '@angular/common/http'
 
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './header/header.component';
@@ -21,7 +21,9 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { ItemsService } from './items/items.service';
 import { SignupFinishComponent } from './auth/signup-finish/signup-finish.component';
-
+import { NewItemComponent } from './items/items-list/new-item/new-item.component';
+import { AuthGuard } from './auth/auth-guard.service';
+import { CollectionsComponent } from './collections/collections.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,14 +38,17 @@ import { SignupFinishComponent } from './auth/signup-finish/signup-finish.compon
     DropdownDirective,
     SignupComponent,
     SigninComponent,
-    SignupFinishComponent
+    SignupFinishComponent,
+    NewItemComponent,
+    CollectionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [Title, ItemCartService, ItemsService, AuthService  ],
+  providers: [Title, ItemCartService, ItemsService, AuthService, AuthGuard  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

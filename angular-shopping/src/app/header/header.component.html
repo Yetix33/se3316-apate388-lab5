@@ -5,9 +5,13 @@
     <div class = "collapse navbar-collapse">
         <ul class = "navbar-nav" >
             <li  routerLinkActive ="nav-item active" class = "nav-item"><a class ="nav-link" routerLink="/items" style = "float: left;">Items</a> </li>
-            <li  routerLinkActive ="nav-item active" class = "nav-item"><a class ="nav-link"  routerLink="/shopping-list" style = "float: left;">Shopping List</a> </li>
+            <li  *ngIf = "authService.isAuthenticated()"routerLinkActive ="nav-item active" class = "nav-item"><a class ="nav-link"  routerLink="/shopping-list" style = "float: left;">Shopping List</a> </li>
+            <li  *ngIf = "authService.isAuthenticated()"routerLinkActive ="nav-item active" class = "nav-item"><a class ="nav-link"  routerLink="/collections" style = "float: left;">Collections</a> </li>
+            <ng-template [ngIf] = "!authService.isAuthenticated()">
             <li  routerLinkActive ="nav-item active" class = "nav-item"><a class ="nav-link"  routerLink="/signup" style = "float: left;">Signup</a> </li>
             <li  routerLinkActive ="nav-item active" class = "nav-item"><a class ="nav-link"  routerLink="/signin" style = "float: left;">Login</a> </li>
+            </ng-template>
+            <button *ngIf = "authService.isAuthenticated()"class = "btn btn-outline-danger" (click) = "authService.logout()">LOGOUT</button>
         </ul>
     </div>
     
